@@ -3,19 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-    public List<GameObject> Cards;
+    public Text correctText;
+    public Text wrongText;
+    public Text timerText;
 
+    List<GameObject> Cards;
     Sprite[] faces;
+    int wrongNum = 0;
+    int correctNum = 0;
+    float timer = 20;
 
     private void Start()
     {
         faces = Resources.LoadAll<Sprite>("Faces/");
         Cards = GameObject.FindGameObjectsWithTag("Card").ToList();
 
+        InitComponents();
         FillCards();
+    }
+
+    private void Update()
+    {
+        timer = timer - Time.deltaTime;
+        InitComponents();
+
+        if(timer <= 0)
+        {
+            EndGame();
+        }
+    }
+
+    void InitComponents()
+    {
+        correctText.text = correctNum.ToString();
+        wrongText.text = wrongNum.ToString();
+        timerText.text = timer.ToString("00");
+
     }
 
     public void FillCards()
@@ -42,8 +69,15 @@ public class GameManager : MonoBehaviour {
 
     public void CheckAnswer(GameObject card)
     {
-        if (card == Cards[0]) Debug.Log("Correct!"); else Debug.Log("Wrong!");
+        if (card == Cards[0]) correctNum++; else wrongNum++;
 
         FillCards();
+    }
+
+    void EndGame()
+    {
+        GameVar.CorrectNum = correctNum;
+        GameVar.WrongNum = wrongNum;
+        SceneManager.LoadScene(2);
     }
 }

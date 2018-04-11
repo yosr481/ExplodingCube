@@ -20,4 +20,8 @@ public class GameVar {
 
     // Current game manager instance, if there is one
     public static GameManager GameManager { get; set; }
+
+
+    public static int CorrectNum;
+    public static int WrongNum;
 }
