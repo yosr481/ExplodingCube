@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 2e603e59719b2464cbb0c15a89db26fd
+timeCreated: 1523289194
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Guttman Yad
+  fontNames:
+  - Guttman Yad
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
