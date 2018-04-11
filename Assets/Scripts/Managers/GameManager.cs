@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour {
         Sprite rightAns = faces[rand1];
         Sprite wrongAns = faces[rand2];
 
+        Cards[0].transform.SetSiblingIndex(rand1);
         if(rand1 != rand2)
         {
             Cards[0].GetComponent<Image>().overrideSprite = rightAns;
@@ -39,5 +40,10 @@ public class GameManager : MonoBehaviour {
             }
             
         }
+    }
+
+    public void CheckAnswer(GameObject card)
+    {
+        if (card == Cards[0]) Debug.Log("Correct!"); else Debug.Log("Wrong!");
     }
 }
