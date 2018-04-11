@@ -13,15 +13,13 @@ public class Final : MonoBehaviour {
     public GameObject scorePanel;
     public GameObject questionPanel;
 
-    int correctNum;
-    int wrongNum;
 	// Use this for initialization
 	void Start () {
         scorePanel.SetActive(true);
         questionPanel.SetActive(false);
 
         float sum = GameVar.CorrectNum + GameVar.WrongNum;
-        float precent = correctNum / sum;
+        float precent = GameVar.CorrectNum / sum;
         float fixedPrecent = precent * 100;
 
         precentText.text = fixedPrecent.ToString("00.0");
