@@ -657,7 +657,7 @@ PlayerSettings:
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
   cloudProjectId: dc02c1e4-a949-4192-aabf-5960bdfb36da
-  projectName: Exploding Cube
+  projectName: Cards and Cubes
   organizationId: yosr481
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
