@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour {
     Color color;
-    GameManagerOld manager;
+
+    public GameObject particlePrefab;
+    public float speed = 10;
 	// Use this for initialization
 	void Start () {
-        manager = FindObjectOfType<GameManagerOld>();
         color = GetComponent<MeshRenderer>().material.color = Random.ColorHSV();
 	}
 
+    private void FixedUpdate()
+    {
+        transform.Translate(new Vector3(0, 0, -speed * Time.deltaTime));
+    }
+
     private void OnMouseDown()
     {
-        manager.particleColor = color;
-        manager.isDestroyed = true;
+        GameObject newParticle = Instantiate(particlePrefab, transform.position, Quaternion.identity);
+        newParticle.GetComponent<ParticleSystem>().startColor = color;
+
         Destroy(gameObject);
     }
 }
