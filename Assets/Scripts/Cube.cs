@@ -7,8 +7,11 @@ public class Cube : MonoBehaviour {
 
     public GameObject particlePrefab;
     public float speed = 10;
+
+    UICubeSceneManager uiManager;
 	// Use this for initialization
 	void Start () {
+        uiManager = FindObjectOfType<UICubeSceneManager>();
         color = GetComponent<MeshRenderer>().material.color = Random.ColorHSV();
 	}
 
@@ -19,6 +22,7 @@ public class Cube : MonoBehaviour {
 
     private void OnMouseDown()
     {
+        uiManager.points++;
         GameObject newParticle = Instantiate(particlePrefab, transform.position, Quaternion.identity);
         newParticle.GetComponent<ParticleSystem>().startColor = color;
 
