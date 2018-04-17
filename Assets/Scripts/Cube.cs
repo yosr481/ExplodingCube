@@ -8,12 +8,19 @@ public class Cube : MonoBehaviour {
     public GameObject particlePrefab;
     public float speed = 10;
 
+
     UICubeSceneManager uiManager;
 	// Use this for initialization
 	void Start () {
         uiManager = FindObjectOfType<UICubeSceneManager>();
         color = GetComponent<MeshRenderer>().material.color = Random.ColorHSV();
 	}
+
+    private void Update()
+    {
+        if (transform.position.z <= Camera.main.transform.position.z)
+            uiManager.ShowLoseMassage();
+    }
 
     private void FixedUpdate()
     {

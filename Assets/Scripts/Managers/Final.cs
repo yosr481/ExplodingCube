@@ -11,12 +11,10 @@ public class Final : MonoBehaviour {
     public Text wrongText;
 
     public GameObject scorePanel;
-    public GameObject questionPanel;
 
 	// Use this for initialization
 	void Start () {
         scorePanel.SetActive(true);
-        questionPanel.SetActive(false);
 
         float sum = GameVar.CorrectNum + GameVar.WrongNum;
         float precent = GameVar.CorrectNum / sum;
@@ -27,18 +25,12 @@ public class Final : MonoBehaviour {
         wrongText.text = GameVar.WrongNum.ToString();
 	}
 
-    public void PopingWindow()
+    private void OnMouseDown()
     {
-        scorePanel.SetActive(false);
-        questionPanel.SetActive(true);
+        BackToMainMenu();
     }
 
-    public void AnswerYes()
-    {
-        SceneManager.LoadScene(3);
-    }
-
-    public void AnswerNo()
+    public void BackToMainMenu()
     {
         SceneManager.LoadScene(0);
     }
