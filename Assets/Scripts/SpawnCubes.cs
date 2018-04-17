@@ -9,9 +9,16 @@ public class SpawnCubes : MonoBehaviour {
     public float sqrSpawnIndicator = 15;
 
     float timer = 1;
-    
+    float spawnMin;
+    float maxSpawnSpeed = 0.25f;
+    public float increaseSpawnRate = -0.01f;
+
     bool isSpawning = true;
 
+    private void Start()
+    {
+        spawnMin = timer;
+    }
     // Update is called once per frame
     void Update () {
         timer -= Time.deltaTime;
@@ -21,7 +28,10 @@ public class SpawnCubes : MonoBehaviour {
                 new Vector3(Random.Range(-sqrSpawnIndicator, sqrSpawnIndicator), 
                 Random.Range(-sqrSpawnIndicator, sqrSpawnIndicator), transform.position.z), 
                 Quaternion.identity);
-            timer = 1;
+            if (spawnMin + increaseSpawnRate > maxSpawnSpeed)
+                timer = spawnMin += increaseSpawnRate;
+            else
+                timer = maxSpawnSpeed;
         }
 	}
 
