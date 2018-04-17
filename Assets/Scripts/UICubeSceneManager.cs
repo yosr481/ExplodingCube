@@ -37,7 +37,7 @@ public class UICubeSceneManager : MonoBehaviour {
         isPlaying = false;
         endTime = timer;
 
-        string beginning = "צברת " + points + " נקודות ב " + timer.ToString("00:00") + " זמן";
+        string beginning = "צברת " + points + " נקודות ב " + timer.ToString("00:00") + " דקות";
         endText.text = beginning;
         endPanel.SetActive(true);
     }
