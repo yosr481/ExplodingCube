@@ -5,7 +5,6 @@ using UnityEngine;
 public class Cube : MonoBehaviour {
     Color color;
 
-    public Material cubeMat;
     public GameObject particlePrefab;
     public float speed = 10;
 
@@ -13,13 +12,10 @@ public class Cube : MonoBehaviour {
     UICubeSceneManager uiManager;
 	// Use this for initialization
 	void Start () {
-        color = Random.ColorHSV();
-        color.a = 255;
-        cubeMat.color = color;
-        Material mainMaterial = new Material(cubeMat);
-        GetComponent<MeshRenderer>().material = mainMaterial;
+        Material mainMaterial = GetComponent<MeshRenderer>().material;
         uiManager = FindObjectOfType<UICubeSceneManager>();
-        
+        color = mainMaterial.color = Random.ColorHSV();
+        color.a = 255;
     }
 
     private void Update()
