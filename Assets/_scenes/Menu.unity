@@ -399,7 +399,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 3874241}
-  - {fileID: 1691689151}
+  - {fileID: 2026968170}
   - {fileID: 614301771}
   - {fileID: 807188798}
   - {fileID: 113614578}
@@ -1124,7 +1124,7 @@ MonoBehaviour:
   openingObjects:
   - {fileID: 614301770}
   - {fileID: 807188797}
-  - {fileID: 1691689150}
+  - {fileID: 0}
   explenationPanel: {fileID: 113614577}
 --- !u!4 &1551950400
 Transform:
@@ -1139,48 +1139,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1691689150
+--- !u!1 &2026968169
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 1691689151}
-  - component: {fileID: 1691689154}
-  - component: {fileID: 1691689153}
-  - component: {fileID: 1691689152}
+  - component: {fileID: 2026968170}
+  - component: {fileID: 2026968174}
+  - component: {fileID: 2026968173}
+  - component: {fileID: 2026968172}
+  - component: {fileID: 2026968171}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RtlText(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1691689151
+--- !u!224 &2026968170
 RectTransform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1691689150}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 2026968169}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 257401914}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000015259, y: -140}
-  m_SizeDelta: {x: -256, y: 160}
+  m_AnchoredPosition: {x: 0, y: 295}
+  m_SizeDelta: {x: -256, y: -590}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1691689152
+--- !u!114 &2026968171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1691689150}
+  m_GameObject: {fileID: 2026968169}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -1189,19 +1190,30 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 10, y: 12}
   m_UseGraphicAlpha: 1
---- !u!114 &1691689153
+--- !u!114 &2026968172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1691689150}
+  m_GameObject: {fileID: 2026968169}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c4728b011492ad4c981d2e16136bad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2026968173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2026968169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4bde79e34a564d4180a115864f98c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.74264705, g: 0.2020437, b: 0.2020437, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1210,21 +1222,21 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f8be271c8656fb14da230429712ff2e0, type: 3}
-    m_FontSize: 120
+    m_FontSize: 115
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 120
+    m_MaxSize: 115
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u05D4\u05E0\u05D5\u05E9\u05D4 \u05EA\u05D0 \u05D0\u05E6\u05DE"
---- !u!222 &1691689154
+  m_Text: "\u05E4\u05D5\u05E6\u05E5 \u05D0\u05EA \u05D4\u05E7\u05D5\u05D1\u05D9\u05D5\u05EA"
+--- !u!222 &2026968174
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1691689150}
+  m_GameObject: {fileID: 2026968169}
