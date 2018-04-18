@@ -9,11 +9,5 @@ EditorBuildSettings:
     path: Assets/_scenes/Menu.unity
     guid: d0ddc1218a352bd44aba673bb3958fd2
   - enabled: 1
-    path: Assets/_scenes/Level 01.unity
-    guid: 2d5de7e11fca5a54884172b24e25cf24
-  - enabled: 1
-    path: Assets/_scenes/EndScreen.unity
-    guid: ab9f6fd6ab249e843ac990494258ad58
-  - enabled: 1
-    path: Assets/_scenes/Cube.unity
+    path: Assets/_scenes/Cubes.unity
     guid: eabe225803e336b458e9c336cca9c99e
