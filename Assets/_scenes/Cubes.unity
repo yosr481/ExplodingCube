@@ -959,7 +959,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 1993823449340024, guid: 3e1a61a3db28f1447a13b2bc636b92b2, type: 2}
   sqrSpawnIndicator: 20
-  increaseSpawnRate: -0.01
+  increaseSpawnRate: -0.25
 --- !u!4 &1365816329
 Transform:
   m_ObjectHideFlags: 0

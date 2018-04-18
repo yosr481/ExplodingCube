@@ -1124,7 +1124,7 @@ MonoBehaviour:
   openingObjects:
   - {fileID: 614301770}
   - {fileID: 807188797}
-  - {fileID: 0}
+  - {fileID: 2026968169}
   explenationPanel: {fileID: 113614577}
 --- !u!4 &1551950400
 Transform:

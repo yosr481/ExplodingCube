@@ -29,7 +29,10 @@ public class SpawnCubes : MonoBehaviour {
                 Random.Range(-sqrSpawnIndicator, sqrSpawnIndicator), transform.position.z), 
                 Quaternion.identity);
             if (spawnMin + increaseSpawnRate > maxSpawnSpeed)
-                timer = spawnMin += increaseSpawnRate;
+            {
+                timer = spawnMin += increaseSpawnRate * Time.fixedDeltaTime;
+                Debug.Log(timer);
+            }
             else
                 timer = maxSpawnSpeed;
         }
