@@ -18,10 +18,9 @@ public class Cube : MonoBehaviour {
         color.a = 255;
     }
 
-    private void Update()
+    private void OnBecameInvisible()
     {
-        if (transform.position.z <= Camera.main.transform.position.z)
-            uiManager.ShowLoseMassage();
+        uiManager.ShowLoseMassage();
     }
 
     private void FixedUpdate()
