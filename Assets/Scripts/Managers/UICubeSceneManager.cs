@@ -7,7 +7,6 @@ public class UICubeSceneManager : MonoBehaviour {
 
     [HideInInspector]
     public int points = 0;
-    float timer = 0;
     float endTime;
 
     public Text timerText;
@@ -25,20 +24,20 @@ public class UICubeSceneManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if(isPlaying)
-            timer += Time.deltaTime;
+            Timer.timer += Time.deltaTime;
 
         pointsText.text = points.ToString();
-        timerText.text = timer.ToString("00:00");
+        timerText.text = Timer.SecondsToString((int)Timer.timer);
 	}
 
     public void ShowLoseMassage()
     {
         spawner.StopSpawnAndClear();
         isPlaying = false;
-        endTime = timer;
+        endTime = Timer.timer;
 
         PlayerPrefs.SetInt("HighScore", points);
-        string beginning = "צברת " + points + " נקודות ב " + timer.ToString("00:00") + " דקות";
+        string beginning = "צברת " + points + " נקודות ב " + Timer.SecondsToString((int)endTime) + " דקות";
         endText.text = beginning;
         endPanel.SetActive(true);
     }

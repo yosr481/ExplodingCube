@@ -8,21 +8,21 @@ public class SpawnCubes : MonoBehaviour {
     public GameObject cubePrefab;
     public float sqrSpawnIndicator = 15;
 
-    float timer = 1;
+    
     float spawnMin;
-    float maxSpawnSpeed = 0.25f;
+    public float maxSpawnSpeed = 0.25f;
     public float increaseSpawnRate = -0.01f;
 
     bool isSpawning = true;
 
     private void Start()
     {
-        spawnMin = timer;
+        spawnMin = Timer.spawnEverySeconds;
     }
     // Update is called once per frame
     void Update () {
-        timer -= Time.deltaTime;
-        if(timer <= 0 && isSpawning)
+        Timer.spawnEverySeconds -= Time.deltaTime;
+        if(Timer.spawnEverySeconds <= 0 && isSpawning)
         {
             GameObject newCube = Instantiate(cubePrefab, 
                 new Vector3(Random.Range(-sqrSpawnIndicator, sqrSpawnIndicator), 
@@ -30,11 +30,11 @@ public class SpawnCubes : MonoBehaviour {
                 Quaternion.identity);
             if (spawnMin + increaseSpawnRate > maxSpawnSpeed)
             {
-                timer = spawnMin += increaseSpawnRate * Time.fixedDeltaTime;
-                Debug.Log(timer);
+                Timer.spawnEverySeconds = spawnMin += increaseSpawnRate * Time.fixedDeltaTime;
+                Debug.Log(Timer.spawnEverySeconds);
             }
             else
-                timer = maxSpawnSpeed;
+                Timer.spawnEverySeconds = maxSpawnSpeed;
         }
 	}
 
