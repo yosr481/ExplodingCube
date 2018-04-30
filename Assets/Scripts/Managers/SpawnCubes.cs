@@ -17,8 +17,10 @@ public class SpawnCubes : MonoBehaviour {
 
     private void Start()
     {
+        Timer.ResetTimer();
         spawnMin = Timer.spawnEverySeconds;
     }
+
     // Update is called once per frame
     void Update () {
         Timer.spawnEverySeconds -= Time.deltaTime;
@@ -41,7 +43,7 @@ public class SpawnCubes : MonoBehaviour {
     public void StopSpawnAndClear()
     {
         isSpawning = false;
-
+        spawnMin = 1;
         List<Cube> allCubes = FindObjectsOfType<Cube>().ToList();
         foreach (Cube c in allCubes)
         {

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65678943722737742}
   - component: {fileID: 23273609164630608}
   - component: {fileID: 114443924516902090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Respawn
   m_Icon: {fileID: 0}
@@ -107,7 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ffc0cd342d04746a76831e2843caf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeMat: {fileID: 2100000, guid: 50f4818c05d58e840933b3d3b7d38a27, type: 2}
   particlePrefab: {fileID: 1498401761109008, guid: 9f4c98b95ccca0e44b11d8891765ae92,
     type: 2}
   speed: 10

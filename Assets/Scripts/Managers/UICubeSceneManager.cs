@@ -32,7 +32,6 @@ public class UICubeSceneManager : MonoBehaviour {
 
     public void ShowLoseMassage()
     {
-        spawner.StopSpawnAndClear();
         isPlaying = false;
         endTime = Timer.timer;
 
@@ -40,5 +39,8 @@ public class UICubeSceneManager : MonoBehaviour {
         string beginning = "צברת " + points + " נקודות ב " + Timer.SecondsToString((int)endTime) + " דקות";
         endText.text = beginning;
         endPanel.SetActive(true);
+
+        Timer.ResetTimer();
+        spawner.StopSpawnAndClear();
     }
 }
