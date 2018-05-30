@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HighScore {
+public class HighScore : IComparable<HighScore>{
 
     public int Points { get; set; }
     public int Seconds { get; set; }
@@ -15,5 +16,15 @@ public class HighScore {
         Name = _name;
         Points = _points;
         Seconds = _seconds;
+    }
+
+    public int CompareTo(HighScore other)
+    {
+        if (other.Seconds < Seconds) return -1;
+        else if (other.Seconds > Seconds) return 1;
+        else if (other.Points < Points) return -1;
+        else if (other.Points > Points) return 1;
+
+        return 0;
     }
 }

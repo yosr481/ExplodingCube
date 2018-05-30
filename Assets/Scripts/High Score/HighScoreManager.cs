@@ -9,32 +9,53 @@ public class HighScoreManager : MonoBehaviour {
 
     List<HighScore> highScores = new List<HighScore>();
     string connecctionString;
+
+    public GameObject scorePrefab;
+    public Transform scoreParent;
+
+    public int topRanks;
+    public int saveScore;
 	// Use this for initialization
 	void Start () {
         connecctionString = "URI=file:" + Application.dataPath + "/Plugins/HighScoreDB.db";
-        DeleteScore(5);
-        GetScores();
+        DeleteExtraScores();
+        ShowScores();
 	}
 
     public void InsertScore(string name, int points, int seconds)
     {
-        using (IDbConnection dbConnection = new SqliteConnection(connecctionString))
-        {
-            dbConnection.Open();
+        GetScores();
+        int hsCount = highScores.Count;
 
-            using (IDbCommand dbCmd = dbConnection.CreateCommand())
+        if(highScores.Count > 0)
+        {
+            HighScore lowestScore = highScores[highScores.Count - 1];
+
+            if(lowestScore != null && saveScore > 0 && highScores.Count >= saveScore && seconds > lowestScore.Seconds)
             {
-                string sqlQuery = String.Format("INSERT INTO HighScores(Name,Points,Time) VALUES(\"{0}\",\"{1}\",\"{2}\")", name,points,seconds);
-                dbCmd.CommandText = sqlQuery;
-                dbCmd.ExecuteScalar();
-                dbConnection.Close();
+                DeleteScore(lowestScore.PlayerID);
+                hsCount--;
+            }
+        }
+        if(hsCount < saveScore)
+        {
+            using (IDbConnection dbConnection = new SqliteConnection(connecctionString))
+            {
+                dbConnection.Open();
+
+                using (IDbCommand dbCmd = dbConnection.CreateCommand())
+                {
+                    string sqlQuery = String.Format("INSERT INTO HighScores(Name,Points,Time) VALUES(\"{0}\",\"{1}\",\"{2}\")", name, points, seconds);
+                    dbCmd.CommandText = sqlQuery;
+                    dbCmd.ExecuteScalar();
+                    dbConnection.Close();
+                }
             }
         }
     }
 
     public void GetScores()
     {
-
         highScores.Clear();
 
         using (IDbConnection dbConnection = new SqliteConnection(connecctionString))
@@ -58,6 +79,8 @@ public class HighScoreManager : MonoBehaviour {
                 }
             }
         }
+
+        highScores.Sort();
     }
 
     public void DeleteScore(int playerID)
@@ -72,6 +95,53 @@ public class HighScoreManager : MonoBehaviour {
                 dbCmd.CommandText = sqlQuery;
                 dbCmd.ExecuteScalar();
                 dbConnection.Close();
+            }
+        }
+    }
+
+    void ShowScores()
+    {
+        GetScores();
+
+        for (int i = 0; i < topRanks; i++)
+        {
+            if( i <= highScores.Count - 1)
+            {
+                GameObject tmpGameobject = Instantiate(scorePrefab);
+                HighScore tmpHighScore = highScores[i];
+
+                tmpGameobject.GetComponent<HighScoreScript>().SetScore(tmpHighScore.Name, (i + 1) + "#",
+                    tmpHighScore.Seconds, tmpHighScore.Points);
+
+                tmpGameobject.transform.SetParent(scoreParent);
+            }
+        }
+    }
+
+    void DeleteExtraScores()
+    {
+        GetScores();
+
+        if(saveScore <= highScores.Count)
+        {
+            int deleteCount = highScores.Count - saveScore;
+            highScores.Reverse();
+
+            using (IDbConnection dbConnection = new SqliteConnection(connecctionString))
+            {
+                dbConnection.Open();
+
+                using (IDbCommand dbCmd = dbConnection.CreateCommand())
+                {
+                    for (int i = 0; i < deleteCount; i++)
+                    {
+                        string sqlQuery = String.Format("DELETE FROM HighScores WHERE PlayerID = \"{0}\"", highScores[i].PlayerID);
+                        dbCmd.CommandText = sqlQuery;
+                        dbCmd.ExecuteScalar();       
+                    }
+
+                    dbConnection.Close();
+                }
             }
         }
     }
