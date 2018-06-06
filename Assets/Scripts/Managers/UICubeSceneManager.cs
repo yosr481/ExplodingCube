@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UICubeSceneManager : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class UICubeSceneManager : MonoBehaviour {
     public Text timerText;
     public Text pointsText;
     public Text endText;
+    public Text nameField;
     public GameObject endPanel;
 
     SpawnCubes spawner;
@@ -42,5 +44,11 @@ public class UICubeSceneManager : MonoBehaviour {
 
         Timer.ResetTimer();
         spawner.StopSpawnAndClear();
+    }
+
+    public void GoToHighScore()
+    {
+        VariablesHolder.InsertVariables(nameField.text, endTime, points);
+        SceneManager.LoadScene(2);
     }
 }

@@ -33,7 +33,6 @@ public class SpawnCubes : MonoBehaviour {
             if (spawnMin + increaseSpawnRate > maxSpawnSpeed)
             {
                 Timer.spawnEverySeconds = spawnMin += increaseSpawnRate * Time.fixedDeltaTime;
-                Debug.Log(Timer.spawnEverySeconds);
             }
             else
                 Timer.spawnEverySeconds = maxSpawnSpeed;

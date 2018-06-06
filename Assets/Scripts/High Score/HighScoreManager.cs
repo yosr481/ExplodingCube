@@ -18,9 +18,28 @@ public class HighScoreManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         connecctionString = "URI=file:" + Application.dataPath + "/Plugins/HighScoreDB.db";
+        CreatTable();
         DeleteExtraScores();
+        InsertScore(VariablesHolder.name, VariablesHolder.points, Mathf.RoundToInt(VariablesHolder.seconds));
         ShowScores();
 	}
+
+    void CreatTable()
+    {
+        using (IDbConnection dbConnection = new SqliteConnection(connecctionString))
+        {
+            dbConnection.Open();
+
+            using (IDbCommand dbCmd = dbConnection.CreateCommand())
+            {
+                string sqlQuery = String.Format("CREATE TABLE if not exist `HighScores` (`PlayerID`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE," +
+                    "`Name` TEXT NOT NULL,`Points`	INTEGER NOT NULL,`Time`	INTEGER NOT NULL)");
+                dbCmd.CommandText = sqlQuery;
+                dbCmd.ExecuteScalar();
+                dbConnection.Close();
+            }
+        }
+    }
 
     public void InsertScore(string name, int points, int seconds)
     {
