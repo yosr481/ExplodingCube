@@ -4,6 +4,7 @@ using Mono.Data.Sqlite;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HighScoreManager : MonoBehaviour {
 
@@ -32,7 +33,7 @@ public class HighScoreManager : MonoBehaviour {
 
             using (IDbCommand dbCmd = dbConnection.CreateCommand())
             {
-                string sqlQuery = String.Format("CREATE TABLE if not exist `HighScores` (`PlayerID`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE," +
+                string sqlQuery = String.Format("CREATE TABLE IF NOT EXISTS `HighScores` (`PlayerID`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE," +
                     "`Name` TEXT NOT NULL,`Points`	INTEGER NOT NULL,`Time`	INTEGER NOT NULL)");
                 dbCmd.CommandText = sqlQuery;
                 dbCmd.ExecuteScalar();
@@ -163,5 +164,10 @@ public class HighScoreManager : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
