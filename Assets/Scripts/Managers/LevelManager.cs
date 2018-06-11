@@ -6,30 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-    public GameObject[] openingObjects;
-    public GameObject explenationPanel;
+    public GameObject buttons;
+    public GameObject ChooseTimeMassage;
 
-    // Use this for initialization
-    void Start () {
-        foreach (GameObject o in openingObjects)
-        {
-            o.SetActive(true);
-        }
-        explenationPanel.SetActive(false);
+    public void OpenFreeStyle()
+    {
+        SceneManager.LoadScene("Free Style");
     }
 
-    public void OpenCubes()
+    public void OpenTimeChooser()
     {
-        SceneManager.LoadScene(1);
-    }
-
-    public void Play()
-    {
-        foreach (GameObject o in openingObjects)
-        {
-            o.SetActive(false);
-        }
-        explenationPanel.SetActive(true);
+        buttons.SetActive(false);
+        ChooseTimeMassage.SetActive(true);
     }
 
     public void Quit()

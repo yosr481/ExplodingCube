@@ -4,6 +4,8 @@ using UnityEngine;
 
 public static class VariablesHolder {
 
+    public static int timeChallaengeAmount;
+
     public static string name;
     public static float seconds;
     public static int points;

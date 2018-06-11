@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class TimeChallangeSceneManager : MonoBehaviour {
+public class TimeChallengeSceneManager : MonoBehaviour {
 
     [HideInInspector]
     public int points = 0;
@@ -18,7 +18,8 @@ public class TimeChallangeSceneManager : MonoBehaviour {
     SpawnCubes spawner;
     bool isPlaying = true;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+        endTime = VariablesHolder.timeChallaengeAmount;
         spawner = FindObjectOfType<SpawnCubes>();
 	}
 	
