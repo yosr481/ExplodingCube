@@ -18,9 +18,9 @@ public class LevelManager : MonoBehaviour {
         explenationPanel.SetActive(false);
     }
 
-    public void OpenCubes()
+    public void OpenFreeStyleScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Free Style");
     }
 
     public void Play()

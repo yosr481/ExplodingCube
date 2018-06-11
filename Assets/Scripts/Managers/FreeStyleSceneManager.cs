@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UICubeSceneManager : MonoBehaviour {
+public class FreeStyleSceneManager : MonoBehaviour {
 
     [HideInInspector]
     public int points = 0;
@@ -66,6 +66,6 @@ public class UICubeSceneManager : MonoBehaviour {
     public void GoToHighScore()
     {
         VariablesHolder.InsertVariables(nameField.text, endTime, points);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Scores");
     }
 }

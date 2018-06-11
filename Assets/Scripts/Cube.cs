@@ -9,13 +9,13 @@ public class Cube : MonoBehaviour {
     public float speed = 10;
     Collider _collider;
 
-    UICubeSceneManager uiManager;
+    FreeStyleSceneManager uiManager;
 	// Use this for initialization
 	void Start () {
         _collider = GetComponent<BoxCollider>();
         
         Material mainMaterial = GetComponent<MeshRenderer>().material;
-        uiManager = FindObjectOfType<UICubeSceneManager>();
+        uiManager = FindObjectOfType<FreeStyleSceneManager>();
         color = mainMaterial.color = Random.ColorHSV();
         color.a = 255;
     }
