@@ -14,4 +14,10 @@ public class Timer : MonoBehaviour {
 
         return string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+
+    public static void ResetTimer()
+    {
+        spawnEverySeconds = 1;
+        timer = 0;
+    }
 }

@@ -11,3 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_scenes/Cubes.unity
     guid: eabe225803e336b458e9c336cca9c99e
+  - enabled: 1
+    path: Assets/_scenes/Scores.unity
+    guid: b68a9b6fbeee42a4387dbe6a9a76d54b
+  m_configObjects: {}
