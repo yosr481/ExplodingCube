@@ -7,12 +7,12 @@ public class Cube : MonoBehaviour {
 
     public GameObject particlePrefab;
     public float speed = 10;
-    Collider collider;
+    Collider _collider;
 
     UICubeSceneManager uiManager;
 	// Use this for initialization
 	void Start () {
-        collider = GetComponent<BoxCollider>();
+        _collider = GetComponent<BoxCollider>();
         
         Material mainMaterial = GetComponent<MeshRenderer>().material;
         uiManager = FindObjectOfType<UICubeSceneManager>();
@@ -31,12 +31,12 @@ public class Cube : MonoBehaviour {
         transform.Translate(new Vector3(0, 0, -speed * Time.deltaTime));
     }
 
-    private void OnMouseDown()
+    /*private void OnMouseDown()
     {
         uiManager.points++;
         GameObject newParticle = Instantiate(particlePrefab, transform.position, Quaternion.identity);
         newParticle.GetComponent<ParticleSystem>().startColor = color;
 
         Destroy(gameObject);
-    }
+    }*/
 }

@@ -30,7 +30,24 @@ public class UICubeSceneManager : MonoBehaviour {
 
         pointsText.text = points.ToString();
         timerText.text = Timer.SecondsToString((int)Timer.timer);
-	}
+
+        foreach (Touch touch in Input.touches)
+        {
+            if (touch.phase == TouchPhase.Began)
+            {
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+                {
+                    if (hit.collider.gameObject.tag == "Respawn")
+                    {
+                        points++;
+                        Destroy(hit.collider.gameObject);
+                    }
+                }
+            }
+        }
+    }
 
     public void ShowLoseMassage()
     {
