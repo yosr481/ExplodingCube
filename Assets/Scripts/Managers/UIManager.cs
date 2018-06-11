@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour {
 
     public void Back()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Main");
     }
 
     public void OverUI()

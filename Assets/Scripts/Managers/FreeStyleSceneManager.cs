@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UICubeSceneManager : MonoBehaviour {
+public class FreeStyleSceneManager : MonoBehaviour {
 
     [HideInInspector]
     public int points = 0;
@@ -28,6 +28,23 @@ public class UICubeSceneManager : MonoBehaviour {
         if(isPlaying)
             Timer.timer += Time.deltaTime;
 
+        foreach (Touch touch in Input.touches)
+        {
+            if(touch.phase == TouchPhase.Began)
+            {
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                RaycastHit hit;
+                if(Physics.Raycast(ray, out hit, Mathf.Infinity))
+                {
+                    if(hit.collider.tag == "Respawn")
+                    {
+                        points++;
+                        Destroy(hit.collider.gameObject);
+                    }
+                }
+            }
+        }
+
         pointsText.text = points.ToString();
         timerText.text = Timer.SecondsToString((int)Timer.timer);
 	}
@@ -49,6 +66,6 @@ public class UICubeSceneManager : MonoBehaviour {
     public void GoToHighScore()
     {
         VariablesHolder.InsertVariables(nameField.text, endTime, points);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Scores");
     }
 }
