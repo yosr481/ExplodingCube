@@ -25,6 +25,11 @@ public class LevelManager : MonoBehaviour {
         SceneManager.LoadScene("Options");
     }
 
+    public void OpenHighScores()
+    {
+        SceneManager.LoadScene("Scores");
+    }
+
     public void Quit()
     {
         Application.Quit();
