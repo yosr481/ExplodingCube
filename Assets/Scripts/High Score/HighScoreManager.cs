@@ -21,7 +21,7 @@ public class HighScoreManager : MonoBehaviour {
         connecctionString = "URI=file:" + Application.dataPath + "/Plugins/HighScoreDB.db";
         CreatTable();
         DeleteExtraScores();
-        InsertScore(VariablesHolder.name, VariablesHolder.points, Mathf.RoundToInt(VariablesHolder.seconds));
+        InsertScore(HSVariablesHolder.name, HSVariablesHolder.points, Mathf.RoundToInt(HSVariablesHolder.seconds));
         ShowScores();
 	}
 

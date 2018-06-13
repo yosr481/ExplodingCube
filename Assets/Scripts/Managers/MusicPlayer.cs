@@ -12,15 +12,19 @@ public class MusicPlayer : MonoBehaviour
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
-            print("Duplicate music player self-destructing!");
         }
         else
         {
             instance = this;
-            GameObject.DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
             music = GetComponent<AudioSource>();
             music.loop = true;
             music.Play();
         }
+    }
+
+    public void SetVolume(float volume)
+    {
+        music.volume = volume;
     }
 }

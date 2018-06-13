@@ -20,6 +20,11 @@ public class LevelManager : MonoBehaviour {
         ChooseTimeMassage.SetActive(true);
     }
 
+    public void OpenOptions()
+    {
+        SceneManager.LoadScene("Options");
+    }
+
     public void Quit()
     {
         Application.Quit();

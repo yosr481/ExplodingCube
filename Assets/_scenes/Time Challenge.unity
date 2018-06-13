@@ -942,7 +942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5290baa264d8845b8f742b20fd226d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubePrefab: {fileID: 1993823449340024, guid: 3e1a61a3db28f1447a13b2bc636b92b2, type: 2}
+  cubePrefab: {fileID: 1993823449340024, guid: ad72c02300a028248a614e09604d2f6f, type: 2}
   sqrSpawnIndicator: 20
   maxSpawnSpeed: 0.25
   increaseSpawnRate: -0.25

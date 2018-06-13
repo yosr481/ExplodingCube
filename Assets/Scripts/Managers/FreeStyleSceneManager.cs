@@ -65,7 +65,7 @@ public class FreeStyleSceneManager : MonoBehaviour {
 
     public void GoToHighScore()
     {
-        VariablesHolder.InsertVariables(nameField.text, endTime, points);
+        HSVariablesHolder.InsertVariables(nameField.text, endTime, points);
         SceneManager.LoadScene("Scores");
     }
 }

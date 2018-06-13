@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class VariablesHolder {
+public static class HSVariablesHolder {
 
     public static int timeChallaengeAmount;
 

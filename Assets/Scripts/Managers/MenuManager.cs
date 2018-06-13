@@ -16,7 +16,7 @@ public class MenuManager : MonoBehaviour {
 
     public void OpenTimeChallange()
     {
-        VariablesHolder.timeChallaengeAmount = (int)slider.value;
+        PlayerPrefsManager.SetTimeAmount(slider.value);
         SceneManager.LoadScene("Time Challenge");
     }
 }

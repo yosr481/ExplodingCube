@@ -19,7 +19,7 @@ public class TimeChallengeSceneManager : MonoBehaviour {
     bool isPlaying = true;
 	// Use this for initialization
 	void Awake () {
-        endTime = VariablesHolder.timeChallaengeAmount;
+        if(PlayerPrefsManager.GetTimeAmount() != 0) endTime = PlayerPrefsManager.GetTimeAmount(); else endTime = 30;
         spawner = FindObjectOfType<SpawnCubes>();
 	}
 	
